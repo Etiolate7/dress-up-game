@@ -10,9 +10,9 @@ import outfits from '../constants/outfits';
 
 export default function Profile() {
     const [selectedCategory, setSelectedCategory] = useState(null);
-    const [selectedHatIndex, setSelectedHatIndex] = useState(0);
-    const [selectedOutfitIndex, setSelectedOutfitIndex] = useState(0);
-    const [selectedAccessoryIndex, setSelectedAccessoryIndex] = useState(0);
+    const [selectedHatIndex, setSelectedHatIndex] = useState(null);
+    const [selectedOutfitIndex, setSelectedOutfitIndex] = useState(null);
+    const [selectedAccessoryIndex, setSelectedAccessoryIndex] = useState(null);
     const [hasInteracted, setHasInteracted] = useState(false);
 
     const handleNext = () => {
