@@ -45,18 +45,18 @@ const styles = StyleSheet.create({
         fontFamily: 'Minecraft',
         fontSize: 35,
         textAlign: 'center',
-        color: 'rgb(200, 171, 198)',
+        color: 'rgb(233, 176, 228)',
     },
     playBtn: {
         fontFamily: 'Minecraft',
-        fontSize: 15,
+        fontSize: 25,
         color: 'rgb(255, 255, 255)',
         marginTop: 200,
     },
     content: {
         alignItems: 'center',
         justifyContent: 'space-between',
-        backgroundColor: 'red'
+        // backgroundColor: 'red'
     },
     titleBis: {
         width: 350,
