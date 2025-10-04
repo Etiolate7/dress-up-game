@@ -35,6 +35,10 @@ const outfits = [
         name: "green-top",
         require: require("../assets/skin/green-top.png"),
     },
+    {
+        name: "none",
+        require: null,
+    },
 ];
 
 export default outfits;

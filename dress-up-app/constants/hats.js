@@ -23,6 +23,10 @@ const hat = [
         name: "toystory",
         require: require("../assets/skin/toystory.png"),
     },
+    {
+        name: "none",
+        require: null,
+    },
 ];
 
 export default hat;

@@ -31,6 +31,10 @@ const accessories = [
         name: "black-bow",
         require: require("../assets/skin/black-bow.png"),
     },
+    {
+        name: "none",
+        require: null,
+    },
 ];
 
 export default accessories;
