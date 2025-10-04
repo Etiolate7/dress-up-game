@@ -13,6 +13,39 @@ export default function Profile() {
     const [selectedAccessoryIndex, setSelectedAccessoryIndex] = useState(null);
     const [hasInteracted, setHasInteracted] = useState(false);
 
+const handleNext = () => {
+        if (selectedCategory === 'hat') {
+            setSelectedHatIndex((prev) =>
+                prev === null ? 0 : (prev + 1) % hats.length
+            );
+        } else if (selectedCategory === 'outfit') {
+            setSelectedOutfitIndex((prev) =>
+                prev === null ? 0 : (prev + 1) % outfits.length
+            );
+        } else if (selectedCategory === 'accessory') {
+            setSelectedAccessoryIndex((prev) =>
+                prev === null ? 0 : (prev + 1) % accessories.length
+            );
+        }
+    };
+
+    const handlePrev = () => {
+        if (selectedCategory === 'hat') {
+            setSelectedHatIndex((prev) =>
+                prev === null ? hats.length - 1 : (prev - 1 + hats.length) % hats.length
+            );
+        } else if (selectedCategory === 'outfit') {
+            setSelectedOutfitIndex((prev) =>
+                prev === null ? outfits.length - 1 : (prev - 1 + outfits.length) % outfits.length
+            );
+        } else if (selectedCategory === 'accessory') {
+            setSelectedAccessoryIndex((prev) =>
+                prev === null ? accessories.length - 1 : (prev - 1 + accessories.length) % accessories.length
+            );
+        }
+    };
+
+
     return(
         <SafeAreaView style={styles.container}>
             <View style={styles.content}>
@@ -20,13 +53,17 @@ export default function Profile() {
 
                 <View style={styles.characterContainer}>
 
-                    <Image source={require('../assets/skin/frame.png')} style={[styles.layerFrame]} />
-                    <Image source={require('../assets/skin/hello-kitty.png')} style={[styles.layer]} />
-                
-                        <Image source={outfits[selectedOutfitIndex].require} style={[styles.layer]} />
-                        <Image source={hats[selectedHatIndex].require} style={[styles.layer]} />
-                        <Image source={accessories[selectedAccessoryIndex].require} style={[styles.layer]} />
-                    
+                    <Image source={require('../assets/skin/frame.png')} style={[styles.layerFrame, { zIndex: 0 }]} />
+                    <Image source={require('../assets/skin/hello-kitty.png')} style={[styles.layer, { zIndex: 1 }]} />
+                    {selectedOutfitIndex !== null && (
+                        <Image source={outfits[selectedOutfitIndex].require} style={[styles.layer, { zIndex: 2 }]} />
+                    )}
+                    {selectedHatIndex !== null && (
+                        <Image source={hats[selectedHatIndex].require} style={[styles.layer, { zIndex: 3 }]} />
+                    )}
+                    {selectedAccessoryIndex !== null && (
+                        <Image source={accessories[selectedAccessoryIndex].require} style={[styles.layer, { zIndex: 4 }]} />
+                    )}
                 </View>
 
 
