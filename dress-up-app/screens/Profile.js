@@ -1,19 +1,21 @@
-import React, { Component } from 'react';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { Button, StyleSheet, Text, View, TouchableOpacity, Image, ImageBackground } from 'react-native';
-import outfits from '../constants/outfits';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import React, { Component } from 'react'
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import accessories from '../constants/accessories';
 import hats from '../constants/hats';
+import { useState } from 'react';
+import outfits from '../constants/outfits';
 
 export default function Profile() {
-
     const [selectedCategory, setSelectedCategory] = useState(null);
-    const [selectedHatIndex, setSelectedHatIndex] = useState(null);
-    const [selectedOutfitIndex, setSelectedOutfitIndex] = useState(null);
-    const [selectedAccessoryIndex, setSelectedAccessoryIndex] = useState(null);
+    const [selectedHatIndex, setSelectedHatIndex] = useState(0);
+    const [selectedOutfitIndex, setSelectedOutfitIndex] = useState(0);
+    const [selectedAccessoryIndex, setSelectedAccessoryIndex] = useState(0);
     const [hasInteracted, setHasInteracted] = useState(false);
 
-const handleNext = () => {
+    const handleNext = () => {
         if (selectedCategory === 'hat') {
             setSelectedHatIndex((prev) =>
                 prev === null ? 0 : (prev + 1) % hats.length
@@ -46,7 +48,7 @@ const handleNext = () => {
     };
 
 
-    return(
+    return (
         <SafeAreaView style={styles.container}>
             <View style={styles.content}>
                 <Text style={styles.title}>Create your own Hello Kitty !</Text>
@@ -93,8 +95,7 @@ const handleNext = () => {
                 </View>
             </View>
         </SafeAreaView>
-    )
-
+    );
 }
 
 const styles = StyleSheet.create({
