@@ -68,22 +68,26 @@ const handleNext = () => {
 
 
                 <View>
+                    {selectedCategory && (
+                        <>
                             <TouchableOpacity style={styles.arrowLeft} onPress={handlePrev}>
                                 <Image source={require('../assets/btn/arrow-left.png')} />
                             </TouchableOpacity>
                             <TouchableOpacity style={styles.arrowRight} onPress={handleNext}>
                                 <Image source={require('../assets/btn/arrow-right.png')} />
                             </TouchableOpacity>
+                        </>
+                    )}
                 </View>
 
                 <View style={styles.btn}>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => { setSelectedCategory('outfit'); setHasInteracted(true); }}>
                         <Image source={require('../assets/btn/btn-outfit.png')} style={styles.btnIcon} />
                     </TouchableOpacity>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => { setSelectedCategory('hat'); setHasInteracted(true); }}>
                         <Image source={require('../assets/btn/btn-hat.png')} style={styles.btnIcon} />
                     </TouchableOpacity>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => { setSelectedCategory('accessory'); setHasInteracted(true); }}>
                         <Image source={require('../assets/btn/btn-accesory.png')} style={styles.btnIcon} />
                     </TouchableOpacity>
                 </View>
