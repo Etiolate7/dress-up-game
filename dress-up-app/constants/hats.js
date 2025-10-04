@@ -29,4 +29,4 @@ const hat = [
     },
 ];
 
-export default hats;
+export default hat;
